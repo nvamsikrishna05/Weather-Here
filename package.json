@@ -1,0 +1,20 @@
+{
+  "name": "data-selfie",
+  "version": "1.0.0",
+  "description": "This is a data selfie app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index",
+    "dev": "nodemon --ext js,html src/index"
+  },
+  "author": "Vamsi Krishna",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
