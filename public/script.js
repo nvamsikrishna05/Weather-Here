@@ -28,6 +28,11 @@ if ('geolocation' in navigator) {
     document
       .querySelector('#submit')
       .setAttribute('style', 'visibility: visible');
+
+    const api_url = `/weather/${lat},${long}`;
+    const response = await fetch(api_url);
+    const weather_data = await response.json();
+    console.log(weather_data);
   });
 } else {
   console.log('Geolocation is not available');

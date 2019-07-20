@@ -3,6 +3,7 @@
 require('dotenv').config();
 const express = require('express');
 const Datastore = require('nedb');
+const fetch = require('node-fetch');
 
 // Setup a Server using Expess
 const app = express();
@@ -40,4 +41,17 @@ app.get('/api', (req, res) => {
     }
     res.json(data);
   });
+});
+
+app.get('/weather/:latlong', async (req, res) => {
+  const latlong = req.params.latlong.split(',');
+  const lat = latlong[0];
+  const long = latlong[1];
+  console.log(latlong);
+  const api_url = `https://api.darksky.net/forecast/${
+    process.env.DARK_SKY_API_KEY
+  }/${lat},${long}`;
+  const response = await fetch(api_url);
+  const weather_json = await response.json();
+  res.json(weather_json);
 });
