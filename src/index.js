@@ -48,10 +48,20 @@ app.get('/weather/:latlong', async (req, res) => {
   const lat = latlong[0];
   const long = latlong[1];
   console.log(latlong);
-  const api_url = `https://api.darksky.net/forecast/${
+  const weather_url = `https://api.darksky.net/forecast/${
     process.env.DARK_SKY_API_KEY
   }/${lat},${long}`;
-  const response = await fetch(api_url);
-  const weather_json = await response.json();
-  res.json(weather_json);
+  const weather_response = await fetch(weather_url);
+  const weather_json = await weather_response.json();
+
+  const aq_url = `https://api.openaq.org/v1/latest?coordinates=${lat},${long}`;
+  const aq_response = await fetch(aq_url);
+  const aq_json = await aq_response.json();
+
+  const data = {
+    weather: weather_json,
+    air_quality: aq_json
+  };
+
+  res.json(data);
 });

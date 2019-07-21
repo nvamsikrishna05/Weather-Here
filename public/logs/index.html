@@ -6,13 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="../styles.css" rel="stylesheet" />
     <title>All Data | Weather Here</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+      crossorigin=""
+    ></script>
+    <style>
+      #checkinMap {
+        height: 240px;
+        margin: 8px 0px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Data Selfie App</h1>
+    <h1>Weather HERE App</h1>
     <nav>
       <a href="../index.html">Check-In</a> &nbsp; | &nbsp;
       <a href="#">View Check-Ins</a>
     </nav>
+    <div id="checkinMap"></div>
     <script src="logs.js"></script>
   </body>
 </html>
